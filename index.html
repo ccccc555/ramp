@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ramp Design</title>
+  <title>Ramp</title>
 </head>
 <body>
-  <h2>Ramp Design</h2>
+  <h2>Ramp Calc</h2>
   <label for="length">Length:</label>
   <input type="number" id="length" step="any" placeholder="18" value="18">
   <br>
@@ -38,7 +38,8 @@
       
       const midSlope = (y3 - y2) / midX;
 
-      const result = `X2,Y2 = (${x2.toFixed(2)}, ${y2.toFixed(2)})<br>X3,Y3 = (${x3.toFixed(2)}, ${y3.toFixed(2)})<br>And mid slope gradient is ${midSlope.toFixed(2)}
+      const result = `X2,Y2 = (${x2.toFixed(2)}, ${y2.toFixed(2)})<br>X3,Y3 = (${x3.toFixed(2)}, ${y3.toFixed(2)})<br>And mid slope gradient is ${midSlope.toFixed(2)}<br>First and Last Section Incline: ${incline1 * 100}%`;
+      
       document.getElementById("result").innerHTML = result;
     }
   </script>
