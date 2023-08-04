@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ramp Design</title>
+</head>
+<body>
+  <h2>Ramp Design</h2>
+  <label for="length">Length:</label>
+  <input type="number" id="length" step="any" placeholder="Length">
+  <br>
+  <label for="startHeight">Start Height:</label>
+  <input type="number" id="startHeight" step="any" placeholder="Start Height">
+  <br>
+  <label for="endHeight">End Height:</label>
+  <input type="number" id="endHeight" step="any" placeholder="End Height">
+  <br>
+  <button onclick="calculate()">Calculate</button>
+  <p>Result:</p>
+  <p id="result"></p>
+
+  <script>
+    function calculate() {
+      const length = parseFloat(document.getElementById("length").value);
+      const startHeight = parseFloat(document.getElementById("startHeight").value);
+      const endHeight = parseFloat(document.getElementById("endHeight").value);
+      
+      const midHeight = (startHeight + endHeight) / 2;
+      const midX = length / 2;
+      
+      const slope = (endHeight - startHeight) / length;
+      
+      const midSlope = (midHeight - startHeight) / midX;
+      
+      const x2 = midX / 2;
+      const y2 = startHeight + midSlope * x2;
+      
+      const x3 = midX * 1.5;
+      const y3 = startHeight + slope * x3;
+
+      const result = `X2,Y2 = (${x2.toFixed(2)}, ${y2.toFixed(2)})<br>X3,Y3 = (${x3.toFixed(2)}, ${y3.toFixed(2)})<br>And mid slope gradient is ${midSlope.toFixed(2)}`;
+      
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+</body>
+</html>
