@@ -28,21 +28,17 @@
       const endHeight = parseFloat(document.getElementById("endHeight").value);
       const incline1 = parseFloat(document.getElementById("incline1").value) / 100;
       
-      const midHeight = (startHeight + endHeight) / 2;
       const midX = length / 2;
       
-      const slope = (endHeight - startHeight) / length;
-      
-      const midSlope = (midHeight - startHeight) / midX;
-      
       const x2 = midX;
-      const y2 = midHeight;
+      const y2 = startHeight + (incline1 * x2);
       
       const x3 = length - midX;
-      const y3 = endHeight;
-
-      const result = `X2,Y2 = (${x2.toFixed(2)}, ${y2.toFixed(2)})<br>X3,Y3 = (${x3.toFixed(2)}, ${y3.toFixed(2)})<br>And mid slope gradient is ${midSlope.toFixed(2)}<br>First and Last Section Incline: ${incline1 * 100}%`;
+      const y3 = endHeight - (incline1 * x3);
       
+      const midSlope = (y3 - y2) / midX;
+
+      const result = `X2,Y2 = (${x2.toFixed(2)}, ${y2.toFixed(2)})<br>X3,Y3 = (${x3.toFixed(2)}, ${y3.toFixed(2)})<br>And mid slope gradient is ${midSlope.toFixed(2)}
       document.getElementById("result").innerHTML = result;
     }
   </script>
